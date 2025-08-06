@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
+require('dotenv').config();
+const port = process.env.PORT || 3000
+
 const user_update = require('./model/user')
 const body_parser = require('body-parser');
 app.use(body_parser.json())
@@ -32,6 +35,6 @@ app.get('/start',(req,res)=>{
 
 //this my first version
 
-app.listen(3000,()=>{
-  console.log('Server is Satrted at 3000');
+app.listen(port,()=>{
+  console.log('Server is Satrted at',port);
 })

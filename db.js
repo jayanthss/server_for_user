@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const mongoURL =
-  "mongodb+srv://jayanthkumar:Sssssjayanth7$@userupdate.izij2ug.mongodb.net/";
+require('dotenv').config();
+const mongoURL_atlas = process.env.mongoURL;
+const mongoURL = mongoURL_atlas;
 
 mongoose.connect(mongoURL, {
   useNewUrlParser: true,
