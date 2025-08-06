@@ -6,11 +6,12 @@ const body_parser = require('body-parser');
 app.use(body_parser.json())
 
 
-app.get('/start',(req,res)=>{
-  res.status(200).send('Server is Runing....')
-});
+app.get('/user',async(req,res)=>{
+  const info = await user_update.find();
+  res.status(200).json({info})
+})
 
-app.post('/Update',async(req,res)=>{
+app.post('/user_Update',async(req,res)=>{
   try{
   const user_defined = req.body;
   const compare =  new user_update(user_defined);
@@ -24,6 +25,12 @@ app.post('/Update',async(req,res)=>{
 
 })
 
+app.get('/start',(req,res)=>{
+  res.status(200).send('Server is Runing....')
+});
+
+
+//this my first version
 
 app.listen(3000,()=>{
   console.log('Server is Satrted at 3000');
